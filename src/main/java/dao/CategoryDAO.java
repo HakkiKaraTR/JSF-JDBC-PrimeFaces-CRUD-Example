@@ -37,7 +37,6 @@ public class CategoryDAO {
         return categoryList;
     }
 
-
     public void insert (Category category) {
         try {
             Statement st = this.getConnection().createStatement();
