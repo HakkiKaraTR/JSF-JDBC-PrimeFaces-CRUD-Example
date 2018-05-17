@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JSFJDBCPrimeFaces:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JSFJDBCPrimeFaces_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JSFJDBCPrimeFaces" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.2.17" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.2.17" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:6.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.46" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="JSFJDBCPrimeFaces/web/Web" />
+    </root>
+  </artifact>
+</component>

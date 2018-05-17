@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>uygulama1</title>
+</h:head>
+
+<h:body>
+
+    <h:form id="form">
+        <p:panelGrid columns = "2" layout="grid">
+            <f:facet name="header">
+                Sakila Table
+            </f:facet>
+            <p:dataTable var="cat" value="#{categoryController.categoryList}" >
+                <p:column headerText="Id">
+                    <h:outputText value="#{cat.category_id}" />
+                </p:column>
+
+                <p:column headerText="Name">
+                    <p:commandLink value="#{cat.name}" action="#{categoryController.updateForm(cat)}" update="form"/>
+                </p:column>
+
+                <p:column headerText="Last Update">
+                    <h:outputText value="#{cat.last_update}" />
+                </p:column>
+
+                <p:column headerText="Delete">
+                    <p:commandButton value="Delete" action="#{categoryController.deleteConfirm(cat)}" update="form"/>
+                </p:column>
+            </p:dataTable>
+
+            <h:form id="form-2">
+                <h:inputHidden value="#{categoryController.category.category_id}"/>
+                <p:outputLabel value="Category Name: "/>
+                <p:inputText value="#{categoryController.category.name}"/>
+                <p:commandButton rendered="#{categoryController.category.category_id != 0}" value="Update" action="#{categoryController.update}" update="form"/>
+                <p:commandButton rendered="#{categoryController.category.category_id == 0}" value="Create" action="#{categoryController.create}" update="form"/>
+                <p:commandButton rendered="#{categoryController.category.category_id != 0}" value="Clear Form" action="#{categoryController.clearForm}" update="form" />
+            </h:form>
+        </p:panelGrid>
+    </h:form>
+
+</h:body>
+
+
+</html>
